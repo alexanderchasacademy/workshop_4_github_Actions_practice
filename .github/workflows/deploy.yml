@@ -39,7 +39,7 @@ jobs :
               uses : actions/download-artifact@v4
               with : 
                 name : dist-folder
-                path:  dist/
+                path:  ./dist
 
             - name : deploy page
               uses : peaceiris/actions-gh-pages@v3
