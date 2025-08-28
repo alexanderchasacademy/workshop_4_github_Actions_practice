@@ -1,0 +1,49 @@
+name : Push, Build and Deploy
+
+on : 
+    push :
+        branches : [main]
+
+    workflow_dispatch:  
+
+jobs : 
+    builds : 
+        runs-on : ubuntu-latest 
+
+        steps: 
+            - uses : actions/checkout@v4
+
+            - name : setup node
+              uses : actions/setup-node@v3
+              with :
+                  node-version : 20 
+            
+            - name : install npm 
+              run : npm install
+            
+            - name : build project
+              run : npm run build
+
+            - name : Upload artifact 
+              uses : actions/upload-artifact@v4
+              with :
+                name : dist-folder
+                path : dist/
+    
+    deploy: 
+        runs-on : ubuntu-latest
+        needs : builds
+
+        steps : 
+            - name : download artifact
+              uses : actions/download-artifact@v4
+              with : 
+                name : dist-folder
+                path:  dist/
+
+            - name : deploy page
+              uses : peaceiris/actions-gh-pages@v3
+              with : 
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir : ./dist
+            
