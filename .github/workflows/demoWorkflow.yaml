@@ -15,8 +15,8 @@ jobs :
               uses : actions/checkout@v4
 
             - name : check node version
-              run : echo node --version
+              run : node --version
 
             - name : check npm version
-              run : echo npm -- version
+              run : npm -- version
     
