@@ -1,0 +1,21 @@
+{
+  "name": "github_actions_build",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/alexanderchasacademy/workshop_4_github_Actions_practice#readme",
+  "bugs": {
+    "url": "https://github.com/alexanderchasacademy/workshop_4_github_Actions_practice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderchasacademy/workshop_4_github_Actions_practice.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'build started....."
+  }
+}
