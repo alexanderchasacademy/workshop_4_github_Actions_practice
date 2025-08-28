@@ -1,0 +1,22 @@
+name : A simple demo workflow
+
+on : 
+    push : 
+        branches : main
+    
+    workflow_dispatch: 
+
+jobs : 
+    demo-job :
+        runs-on : windows-latest
+
+        steps : 
+            - name : checkout repository
+              uses : actions/checkout@v4
+
+            - name : check node version
+              run : echo node --version
+
+            - name : check npm version
+              run : echo npm -- version
+    
